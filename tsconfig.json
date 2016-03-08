@@ -1,0 +1,20 @@
+{
+    "version": "1.8.7",
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "jsx": "react",
+        "jsxPreserve": true,
+        "noImplicitAny": true,
+        "removeComments": true,
+        "noLib": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "sourceMap": true
+    },
+    "filesGlob": [
+        "./app/**/*.ts",
+        "./typing/**/*.ts"
+    ],
+    "compileOnSave": false
+}
