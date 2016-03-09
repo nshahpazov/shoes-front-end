@@ -17,11 +17,13 @@ class ShoesItem extends React.Component<any, any> {
     };
 
     const {shoes} = this.props;
+    const {name} = shoes;
 
     return (
-      <div>
-        <p>{shoes.name}</p>
-        <img src="images/" />
+      <div className="shoes-item">
+        <p>{name}</p>
+        <img src="images/shoes.jpg" />
+        <button>Add to Basket</button>
       </div>
     );
   }
