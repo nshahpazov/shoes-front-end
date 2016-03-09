@@ -5,7 +5,7 @@
         "module": "commonjs",
         "jsx": "react",
         "jsxPreserve": true,
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "removeComments": true,
         "noLib": false,
         "emitDecoratorMetadata": true,
