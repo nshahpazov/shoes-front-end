@@ -7,15 +7,16 @@ import * as Immutable from 'immutable';
 
 const defaults = {
   id: -1,
+  name: '',
   description: 'none',
   size: 42
 };
 
-class Shoes extends Immutable.Record(defaults) {
+class Shoe extends Immutable.Record(defaults) {
   public id: number;
   public size: number;
-
-  public text: string;
+  public name: string;
+  public description: string;
 
   constructor(props) {
     super(props);
