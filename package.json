@@ -6,6 +6,7 @@
     "flux": "^2.1.1",
     "immutable": "^3.7.6",
     "react": "^0.14.7",
+    "react-dom": "^0.14.7",
     "wolfy87-eventemitter": "^4.2.11"
   },
   "devDependencies": {
