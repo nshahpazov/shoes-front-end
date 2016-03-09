@@ -12,8 +12,33 @@ import Shoe from '../models/Shoe';
 let EventEmitter = event.EventEmitter2;
 let CHANGE_EVENT = 'change';
 
-let _shoes = Immutable.List<Shoe>();
-
+// let _shoes = Immutable.List<Shoe>();
+// hardcoded for now, until api calls are established
+let _shoes = [{
+  name: 'Cool Shoes'
+}, {
+  name: 'Awesome Shoes'
+}, {
+  name: 'Sleek Shoes'
+}, {
+  name: 'Cool Shoes'
+}, {
+  name: 'Awesome Shoes'
+}, {
+  name: 'Sleek Shoes'
+}, {
+  name: 'Cool Shoes'
+}, {
+  name: 'Chukka Boots'
+}, {
+  name: 'Clark Shoes'
+}, {
+  name: 'Henrixon Shoes'
+}, {
+  name: 'Lorelaine Shoes'
+}, {
+  name: 'Jumbo Shoes'
+}];
 /**
  * Add To Basket
 
