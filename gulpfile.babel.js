@@ -11,11 +11,7 @@ import rename from 'gulp-rename';
 // import autoprefixer from 'gulp-autoprefixer';
 // import sourcemaps from 'gulp-sourcemaps';
 
-
-
-let tsProject = tsc.createProject('tsconfig.json', {
-  typescript
-});
+let tsProject = tsc.createProject('tsconfig.json', {typescript});
 
 gulp.task('ts', () => {
   return gulp.src('./app/src/**/*.ts*')
@@ -25,9 +21,7 @@ gulp.task('ts', () => {
 
 gulp.task('browserify', ['ts'], () => {
   return gulp.src('./app/dist/app.js')
-    .pipe(browserify({
-        debug: true
-    }))
+    .pipe(browserify({ debug: true }))
     .pipe(rename('bundle.js'))
     .pipe(gulp.dest('./app/dist'));
 });
