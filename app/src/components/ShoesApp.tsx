@@ -16,8 +16,9 @@ class ShoesApp extends React.Component<any, any> {
     this.state = getShoesStoreData();
   }
 
-  onAddToBasket(text: string): void {
-    ShoesActions.addToBasket(text);
+  // todo: add type to that
+  onAddToBasket(shoes): void {
+    ShoesActions.addToBasket(shoes);
   }
 
   componentDidMount(): void {
@@ -27,7 +28,13 @@ class ShoesApp extends React.Component<any, any> {
 
   render() {
     return (
-      <div><ShoesList shoes={this.state.allShoes} /></div>
+      <div>
+        <h1>Shoes App</h1>
+        <div>
+          <a href="#">View Basket</a>
+        </div>
+        <ShoesList shoes={this.state.allShoes} />
+       </div>
     );
   }
 }
