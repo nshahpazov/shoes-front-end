@@ -16,7 +16,7 @@ import assign = require('object-assign');
 // todo: add env route
 // todo: make this to generic api communicator
 const URI = 'http://localhost:8000/basket.json';
-const REGISTER_BASKET_URI = 'http://localhost:3000/order';
+const REGISTER_BASKET_URI = 'http://localhost:3000/orders';
 
 export default class BasketUtils {
 
@@ -36,16 +36,19 @@ export default class BasketUtils {
   // }
 
   public static registerBasket() {
-    const storedBasket = Cookies.get('basket');
+    const basketAsString = Cookies.get('basket');
+    const hasStored = typeof basketAsString !== 'undefined';
+    const basket = hasStored && JSON.parse(basketAsString);
     const status = 'BASKET';
-    const hasStored = typeof storedBasket !== 'undefined';
-    const cookiePromise = () => Promise.resolve(storedBasket);
+
+    debugger;
+
+    const cookiePromise = () => Promise.resolve(basket);
     const remotePromise = () => APIUtils.post(REGISTER_BASKET_URI, {status});
     const promise = hasStored ? cookiePromise() : remotePromise();
-    debugger;
+
     promise
       .then(data => assign(data, {hasStored}))
-      .then(data => {debugger; return data;})
       .then(BasketServerActions.receiveBasketRegistration);
   }
 };
