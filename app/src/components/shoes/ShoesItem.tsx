@@ -10,16 +10,15 @@ export default class ShoesItem extends React.Component<any, any> {
   }
 
   render() {
-    const {name, description} = this.props.shoes;
+    const {name, description, price} = this.props.shoes;
     const tooltip = (<Tooltip>{description}</Tooltip>);
 
     return (
       <div className="shoes-item">
-        <p className="shoes-item-name">{name}</p>
+        <p className="shoes-item-name">{name} - {price}</p>
         <OverlayTrigger placement="bottom" overlay={tooltip}>
           <img src="images/shoes.jpg"/>
         </OverlayTrigger>
-
         <button className="btn btn-default">Add to Basket</button>
       </div>
     );
