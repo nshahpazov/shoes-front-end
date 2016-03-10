@@ -10,47 +10,10 @@ import assign = require('object-assign');
 import Shoe from '../models/Shoe';
 
 let EventEmitter = event.EventEmitter2;
+// todo: add events constants module
 let CHANGE_EVENT = 'change';
 
-// let _shoes = Immutable.List<Shoe>();
-// hardcoded for now, until api calls are established
-// todo: remove hardcoded data after having api calls
-// let _shoes = [{
-//   name: 'Cool Shoes'
-// }, {
-//   name: 'Awesome Shoes'
-// }, {
-//   name: 'Sleek Shoes'
-// }, {
-//   name: 'Cool Shoes'
-// }, {
-//   name: 'Awesome Shoes'
-// }, {
-//   name: 'Sleek Shoes'
-// }, {
-//   name: 'Cool Shoes'
-// }, {
-//   name: 'Chukka Boots'
-// }, {
-//   name: 'Clark Shoes'
-// }, {
-//   name: 'Henrixon Shoes'
-// }, {
-//   name: 'Lorelaine Shoes'
-// }, {
-//   name: 'Jumbo Shoes'
-// }];
-/**
- * Add To Basket
-
- */
-let _shoes = [];
-function addToBasket(shoes) {
-
-}
-
 const ShoesStore = assign(EventEmitter.prototype, <any> {
-
   _shoes: [],
 
   emitChange() {
