@@ -56,6 +56,8 @@ Dispatcher.register((action: any) => {
   switch (type) {
     case BasketActionTypes.REMOVE_FROM_BASKET:
       break;
+    case BasketActionTypes.GET_BASKET_RESPONSE:
+      break;
   }
 });
 
