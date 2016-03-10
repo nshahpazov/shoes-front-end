@@ -48,13 +48,18 @@ const BasketStore = assign(EventEmitter.prototype, <any>{
 /**
  * TODO: make interfaces for payload and for action
  */
-Dispatcher.register((action: any) => {
+Dispatcher.register(action => {
   const {payload, type} = action;
   switch (type) {
     case BasketActionTypes.REMOVE_FROM_BASKET:
       break;
     case BasketActionTypes.GET_BASKET_RESPONSE:
       BasketStore.basket = payload;
+      BasketStore.emitChange();
+      break;
+
+    case BasketActionTypes.REGISTER_BASKET_RESPONSE:
+      console.log(payload);
       BasketStore.emitChange();
       break;
   }
