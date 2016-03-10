@@ -10,8 +10,8 @@ import BasketActions from '../actions/BasketActions';
 import {Link} from 'react-router';
 
 function getShoesStoreData() {
-  const allShoes = ShoesStore.shoes;
-  return {allShoes};
+  const {shoes} = ShoesStore;
+  return {shoes};
 }
 
 class ShoesApp extends React.Component<any, any> {
@@ -40,9 +40,9 @@ class ShoesApp extends React.Component<any, any> {
       <div>
         <h1>Shoes App</h1>
         <div>
-        <Link to="/basket" activeClassName="active">View Basket</Link>
+          <Link to="/basket" activeClassName="active">View Basket</Link>
         </div>
-        <ShoesList shoes={this.state.allShoes} />
+        <ShoesList shoes={this.state.shoes} />
        </div>
     );
   }
