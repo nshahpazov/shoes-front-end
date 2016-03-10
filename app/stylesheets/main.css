@@ -1,5 +1,10 @@
 .shoes-item {
   display: inline-block;
   width: 300px;
-  height: 300px;
+  height: 320px;
+  text-align: center;
+}
+
+.shoes-item-name {
+  font-weight: bold;
 }
