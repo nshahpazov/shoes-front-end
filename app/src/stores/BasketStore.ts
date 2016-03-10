@@ -12,17 +12,14 @@ import Basket from '../models/Basket';
 const EventEmitter = event.EventEmitter2;
 const CHANGE_EVENT = 'change';
 
+// refactor to inherit event emitter and not assign
 const BasketStore = assign(EventEmitter.prototype, <any>{
-  _basket: {},
+  _basket: { items: [] },
 
   emitChange() {
     this.emit(CHANGE_EVENT);
   },
 
-  /**
-   * Get the entire collection of shoes
-   * @return {object}
-   */
   get basket() {
     return this._basket;
   },
@@ -57,6 +54,8 @@ Dispatcher.register((action: any) => {
     case BasketActionTypes.REMOVE_FROM_BASKET:
       break;
     case BasketActionTypes.GET_BASKET_RESPONSE:
+      BasketStore.basket = payload;
+      BasketStore.emitChange();
       break;
   }
 });
