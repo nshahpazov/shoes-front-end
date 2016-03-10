@@ -17,5 +17,10 @@ export default {
       Cookies.set('basket', JSON.stringify(payload), {expires: 1});
     }
     Dispatcher.handleServerAction({type, payload});
+  },
+
+  // a server action to be executed when the item is pushed in the basket
+  receiveBasketItemPush(payload) {
+
   }
 };

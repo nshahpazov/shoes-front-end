@@ -17,6 +17,7 @@ import assign = require('object-assign');
 // todo: make this to generic api communicator
 const URI = 'http://localhost:8000/basket.json';
 const REGISTER_BASKET_URI = 'http://localhost:3000/orders';
+const ADD_ITEM = 'http://localhost:3000/orders/';
 
 export default class BasketUtils {
 
@@ -24,16 +25,14 @@ export default class BasketUtils {
     APIUtils.get(URI).then(data => BasketServerActions.receiveBasket(data));
   }
 
-  public static addToBasket(item) {
+  public static addItem(item) {
+    const basket = JSON.parse(Cookies.get('basket'));
+    const {id} = basket;
+    const uri = ADD_ITEM + id + '/order_items';
 
+    APIUtils.post(uri, item)
+      .then(BasketServerActions.receiveBasketItemPush);
   }
-
-  // public static registerBasket() {
-  //   return APIUtils.post(REGISTER_BASKET_URI, {
-  //     // todo: remove magic string
-  //     status: 'BASKET'
-  //   });
-  // }
 
   public static registerBasket() {
     const basketAsString = Cookies.get('basket');
