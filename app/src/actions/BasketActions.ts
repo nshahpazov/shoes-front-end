@@ -12,7 +12,7 @@ export default {
 
   registerBasket() {
     const type = ActionTypes.REGISTER_BASKET;
-    Dispatcher.handleViewAction({ type });
+    Dispatcher.handleViewAction({type});
     BasketUtils.registerBasket();
   }
 };
