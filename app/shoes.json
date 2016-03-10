@@ -1,19 +1,25 @@
 [{
   "name": "Cool Boots",
-  "description": ", consectetur adipisicing elit"
+  "description": ", consectetur adipisicing elit",
+  "price": 87.88
 }, {
   "name": "Awesome Boots",
-  "description": ". Sunt recusandae, a earum minus possimus."
+  "description": ". Sunt recusandae, a earum minus possimus.",
+  "price": 87.88
 }, {
   "name": "Rediston Boots",
-  "description": " illum aliquam vitae soluta dolorem quos"
+  "description": " illum aliquam vitae soluta dolorem quos",
+  "price": 87.88
 },{
   "name": "Morningstar Boots",
-  "description": "deserunt similique delectus."
+  "description": "deserunt similique delectus.",
+  "price": 87.88
 }, {
   "name": "Zeus Boots",
-  "description": "Lorem ipsum dolor sit amet"
+  "description": "Lorem ipsum dolor sit amet",
+  "price": 87.88
 }, {
   "name": "Amazing Boots",
-  "description":  "error corporis molestiae ipsum. Voluptatibus!"
+  "description":  "error corporis molestiae ipsum. Voluptatibus!",
+  "price": 87.88
 }]
