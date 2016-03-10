@@ -9,9 +9,9 @@ import ShoeActionTypes from '../constants/ShoeActionTypes';
 import assign = require('object-assign');
 import Shoe from '../models/Shoe';
 
-let EventEmitter = event.EventEmitter2;
+const EventEmitter = event.EventEmitter2;
 // todo: add events constants module
-let CHANGE_EVENT = 'change';
+const CHANGE_EVENT = 'change';
 
 const ShoesStore = assign(EventEmitter.prototype, <any> {
   _shoes: [],
