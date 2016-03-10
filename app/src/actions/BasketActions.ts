@@ -6,7 +6,13 @@ export default {
   // add shoe type the param
   getBasket() {
     const type = ActionTypes.GET_BASKET_RESPONSE;
-    Dispatcher.handleViewAction({ type });
+    Dispatcher.handleViewAction({type});
     BasketUtils.getBasket();
+  },
+
+  registerBasket() {
+    const type = ActionTypes.REGISTER_BASKET;
+    Dispatcher.handleViewAction({ type });
+    BasketUtils.registerBasket();
   }
 };
