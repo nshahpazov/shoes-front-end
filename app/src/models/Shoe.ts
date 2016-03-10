@@ -7,6 +7,7 @@ import * as Immutable from 'immutable';
 
 const defaults = {
   id: -1,
+  price: 0,
   name: '',
   description: 'none',
   size: 42
@@ -14,6 +15,7 @@ const defaults = {
 
 class Shoe extends Immutable.Record(defaults) {
   public id: number;
+  public price: number;
   public size: number;
   public name: string;
   public description: string;
