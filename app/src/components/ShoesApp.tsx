@@ -2,7 +2,6 @@
 /// <reference path="../../../typing/react-router.d.ts" />
 import ShoesStore from '../stores/ShoesStore';
 import BasketStore from '../stores/BasketStore';
-
 import ShoesList from './shoes/ShoesList';
 import * as React from 'react';
 import ShoesActions from '../actions/ShoesActions';

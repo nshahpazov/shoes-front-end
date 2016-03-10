@@ -40,9 +40,6 @@ export default class BasketUtils {
     const hasStored = typeof basketAsString !== 'undefined';
     const basket = hasStored && JSON.parse(basketAsString);
     const status = 'BASKET';
-
-    debugger;
-
     const cookiePromise = () => Promise.resolve(basket);
     const remotePromise = () => APIUtils.post(REGISTER_BASKET_URI, {status});
     const promise = hasStored ? cookiePromise() : remotePromise();

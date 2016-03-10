@@ -15,7 +15,7 @@ export default class ShoesItem extends React.Component<any, any> {
 
     return (
       <div className="shoes-item">
-        <p className="shoes-item-name">{name} - {price}</p>
+        <p className="shoes-item-name">{name} - ${price}</p>
         <OverlayTrigger placement="bottom" overlay={tooltip}>
           <img src="images/shoes.jpg"/>
         </OverlayTrigger>
