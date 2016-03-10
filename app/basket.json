@@ -1,0 +1,15 @@
+{
+  "items": [{
+    "name": "Cool Boots",
+    "description": ", consectetur adipisicing elit",
+    "price": 87.99
+  }, {
+    "name": "Awesome Boots",
+    "description": ". Sunt recusandae, a earum minus possimus.",
+    "price": 87.99
+  }, {
+    "name": "Rediston Boots",
+    "description": " illum aliquam vitae soluta dolorem quos",
+    "price": 87.99
+  }]
+}
