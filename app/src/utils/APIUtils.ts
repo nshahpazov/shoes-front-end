@@ -1,19 +1,25 @@
 /// <reference path="../../../typing/superagent.d.ts" />
+/// <reference path="../../../typing/es6-promise.d.ts" />
 import ShoesServerActions from '../actions/ShoesServerActions';
 import * as request from 'superagent';
+import {Promise} from 'es6-promise';
 
-export default {
-  getAllShoes() {
-    // todo: change that to api calls
-    // todo: add config routes and default end
-    request.get('http://localhost:8000/shoes.json')
-      .set('Accept', 'application/json')
-      .end((err, response) => {
-        if (err) {
-          return console.error(err);
-        }
-
-        ShoesServerActions.receiveShoes(response.body);
-      });
+export default class APIUtils {
+  public static get(uri) {
+    return new Promise((resolve, reject) => {
+      request.get(uri)
+        .set('Accept', 'application/json')
+        .end((err, res) => err ? reject(err) : resolve(res.body));
+    });
   }
-};
+
+  public static post(uri, data?) {
+    return new Promise((resolve, reject) => {
+      request.post(uri)
+        .send(data)
+        .set('Accept', 'application/json')
+        .end((err, res) => err ? reject(err) : resolve(res.body));
+    });
+  }
+
+}
