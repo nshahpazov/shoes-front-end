@@ -4,13 +4,13 @@ import BasketItem from './BasketItem';
 
 export default class BasketList extends React.Component<any, any> {
 
-  constructor(props: any) {
+  constructor(props) {
     super(props);
   }
 
   render() {
-    const {shoes} = this.props;
-    const list = shoes.map(shoes => <BasketItem shoes={shoes} />);
-    return (<div> {list} </div>);
+    const {items} = this.props;
+    const itemList = items.map(item => <BasketItem item={item} />);
+    return (<div> {itemList} </div>);
   }
 }
