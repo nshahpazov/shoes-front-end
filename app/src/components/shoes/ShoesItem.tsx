@@ -1,32 +1,27 @@
 /// <reference path="../../../../typing/react.d.ts" />
-
+/// <reference path="../../../../typing/react-bootstrap.d.ts" />
 import * as React from 'react';
+import {Tooltip, OverlayTrigger} from 'react-bootstrap';
 
-class ShoesItem extends React.Component<any, any> {
+export default class ShoesItem extends React.Component<any, any> {
 
   constructor(props) {
     super(props);
   }
 
   render() {
-    const divStyle = {
-      width: 100,
-      height: 20,
-      border: '1px solid #fff',
-      backgroundColor: this.props.color
-    };
-
-    const {shoes} = this.props;
-    const {name} = shoes;
+    const {name, description} = this.props.shoes;
+    const tooltip = (<Tooltip>{description}</Tooltip>);
 
     return (
       <div className="shoes-item">
-        <p>{name}</p>
-        <img src="images/shoes.jpg" />
-        <button>Add to Basket</button>
+        <p className="shoes-item-name">{name}</p>
+        <OverlayTrigger placement="bottom" overlay={tooltip}>
+          <img src="images/shoes.jpg"/>
+        </OverlayTrigger>
+
+        <button className="btn btn-default">Add to Basket</button>
       </div>
     );
   }
 }
-
-export default ShoesItem;

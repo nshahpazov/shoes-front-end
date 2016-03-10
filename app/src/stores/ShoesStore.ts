@@ -14,58 +14,66 @@ let CHANGE_EVENT = 'change';
 
 // let _shoes = Immutable.List<Shoe>();
 // hardcoded for now, until api calls are established
-let _shoes = [{
-  name: 'Cool Shoes'
-}, {
-  name: 'Awesome Shoes'
-}, {
-  name: 'Sleek Shoes'
-}, {
-  name: 'Cool Shoes'
-}, {
-  name: 'Awesome Shoes'
-}, {
-  name: 'Sleek Shoes'
-}, {
-  name: 'Cool Shoes'
-}, {
-  name: 'Chukka Boots'
-}, {
-  name: 'Clark Shoes'
-}, {
-  name: 'Henrixon Shoes'
-}, {
-  name: 'Lorelaine Shoes'
-}, {
-  name: 'Jumbo Shoes'
-}];
+// todo: remove hardcoded data after having api calls
+// let _shoes = [{
+//   name: 'Cool Shoes'
+// }, {
+//   name: 'Awesome Shoes'
+// }, {
+//   name: 'Sleek Shoes'
+// }, {
+//   name: 'Cool Shoes'
+// }, {
+//   name: 'Awesome Shoes'
+// }, {
+//   name: 'Sleek Shoes'
+// }, {
+//   name: 'Cool Shoes'
+// }, {
+//   name: 'Chukka Boots'
+// }, {
+//   name: 'Clark Shoes'
+// }, {
+//   name: 'Henrixon Shoes'
+// }, {
+//   name: 'Lorelaine Shoes'
+// }, {
+//   name: 'Jumbo Shoes'
+// }];
 /**
  * Add To Basket
 
  */
+let _shoes = [];
 function addToBasket(shoes) {
 
 }
 
 const ShoesStore = assign(EventEmitter.prototype, <any> {
 
-  emitChange: () => {
-    this.default.emit(CHANGE_EVENT);
+  _shoes: [],
+
+  emitChange() {
+    this.emit(CHANGE_EVENT);
   },
 
   /**
    * Get the entire collection of shoes
    * @return {object}
    */
-  getAll: () => {
-    return _shoes;
+  get shoes() {
+    return this._shoes;
+  },
+
+  set shoes(shoes) {
+    this._shoes = shoes;
   },
 
   /**
    * Adds an event using the Event Emitter
    * @param {function} callback
    */
-  addChangeListener: (callback: Function) => {
+  addChangeListener(callback: Function) {
     this.on(CHANGE_EVENT, callback);
   },
 
@@ -73,24 +81,22 @@ const ShoesStore = assign(EventEmitter.prototype, <any> {
    * Removes an event using the Event Emitter
    * @param {function} callback
    */
-  removeChangeListener: (callback: Function) => {
+  removeChangeListener(callback: Function) {
     this.removeListener(CHANGE_EVENT, callback);
   }
 });
 
 /**
- * TODO: make an interface for Payload
+ * TODO: make interfaces for payload and for action
  */
 Dispatcher.register((action: any) => {
-  const {shoe, type} = action;
-  // let checked = action.checked;
-
+  const {payload, type} = action;
   switch (type) {
     case ShoeActionTypes.ADD_TO_BASKET_ACTION:
-      // if (text !== '') {
-      //   addToBasket(text);
-      //   ShoesStore.emitChange();
-      // }
+      break;
+    case ShoeActionTypes.GET_SHOES_RESPONSE:
+      ShoesStore.shoes = payload;
+      ShoesStore.emitChange();
       break;
   }
 });
