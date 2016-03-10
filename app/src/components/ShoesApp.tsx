@@ -1,9 +1,12 @@
 /// <reference path="../../../typing/react.d.ts" />
 /// <reference path="../../../typing/react-router.d.ts" />
 import ShoesStore from '../stores/ShoesStore';
+import BasketStore from '../stores/BasketStore';
+
 import ShoesList from './shoes/ShoesList';
 import * as React from 'react';
 import ShoesActions from '../actions/ShoesActions';
+import BasketActions from '../actions/BasketActions';
 import {Link} from 'react-router';
 
 function getShoesStoreData() {
@@ -18,11 +21,11 @@ class ShoesApp extends React.Component<any, any> {
 
     // make call to get all shoes
     ShoesActions.getShoes();
-
+    BasketActions.registerBasket();
     this.state = getShoesStoreData();
   }
 
-  // todo: add type to that
+  // todo: add type to that apram
   onAddToBasket(shoes): void {
     ShoesActions.addToBasket(shoes);
   }
