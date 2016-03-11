@@ -22,7 +22,7 @@ const ADD_ITEM = 'http://localhost:3000/orders/';
 export default class BasketUtils {
 
   public static getBasket(id: number) {
-    APIUtils.get(BASKET_URI + id + '/order_items')
+    APIUtils.get(BASKET_URI + id)
       .then(data => BasketServerActions.receiveBasket(data));
   }
 
@@ -30,7 +30,7 @@ export default class BasketUtils {
     const basket = JSON.parse(Cookies.get('basket'));
     const {id} = basket;
     const uri = ADD_ITEM + id + '/order_items';
-    const data = {size: item.size, ShoeModelId: item.id};
+    const data = {size: item.size, shoeModelId: item.id};
 
     APIUtils.post(uri, data)
       .then(BasketServerActions.receiveBasketItemPush);
