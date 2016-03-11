@@ -14,7 +14,7 @@ const CHANGE_EVENT = 'change';
 
 // refactor to inherit event emitter and not assign
 const BasketStore = assign(EventEmitter.prototype, <any>{
-  _basket: { items: [] },
+  _basket: { orderItems: [] },
 
   emitChange() {
     this.emit(CHANGE_EVENT);
