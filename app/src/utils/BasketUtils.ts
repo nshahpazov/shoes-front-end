@@ -25,7 +25,7 @@ export default class BasketUtils {
     APIUtils.get(URI).then(data => BasketServerActions.receiveBasket(data));
   }
 
-  public static addItem(item) {
+  public static addToBasket(item) {
     const basket = JSON.parse(Cookies.get('basket'));
     const {id} = basket;
     const uri = ADD_ITEM + id + '/order_items';
