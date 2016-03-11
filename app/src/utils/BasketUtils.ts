@@ -15,22 +15,24 @@ import assign = require('object-assign');
 // todo: add constants for URIS
 // todo: add env route
 // todo: make this to generic api communicator
-const URI = 'http://localhost:8000/basket.json';
+const BASKET_URI = 'http://localhost:3000/orders/';
 const REGISTER_BASKET_URI = 'http://localhost:3000/orders';
 const ADD_ITEM = 'http://localhost:3000/orders/';
 
 export default class BasketUtils {
 
-  public static getBasket() {
-    APIUtils.get(URI).then(data => BasketServerActions.receiveBasket(data));
+  public static getBasket(id: number) {
+    APIUtils.get(BASKET_URI + id + '/order_items')
+      .then(data => BasketServerActions.receiveBasket(data));
   }
 
   public static addToBasket(item) {
     const basket = JSON.parse(Cookies.get('basket'));
     const {id} = basket;
     const uri = ADD_ITEM + id + '/order_items';
+    const data = {size: item.size, ShoeModelId: item.id};
 
-    APIUtils.post(uri, item)
+    APIUtils.post(uri, data)
       .then(BasketServerActions.receiveBasketItemPush);
   }
 
