@@ -9,7 +9,6 @@ import {Link} from 'react-router';
 
 function getBasketStoreData() {
   const {basket} = BasketStore;
-  debugger;
   return { basket };
 }
 
@@ -26,10 +25,11 @@ export default class Basket extends React.Component<any, any> {
   }
 
   render() {
+    const {orderItems} = this.state.basket;
     return (
       <div>
         <h1>Your Basket</h1>
-        <BasketItemList items={this.state.basket.items} />
+        <BasketItemList items={orderItems} />
       </div>
     );
   }

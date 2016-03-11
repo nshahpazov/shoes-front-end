@@ -17,9 +17,10 @@ export default class BasketItem extends React.Component<any, any> {
       <div>
         <p>{name}</p>
         <button type="button" className="close"></button>
-        <img src="images/shoes.jpg" />
+        <OverlayTrigger placement="bottom" overlay={tooltip}>
+          <img src="images/shoes.jpg"/>
+        </OverlayTrigger>
         <p>PRICE: {price} </p>
-        <p>{description}</p>
       </div>
     );
   }

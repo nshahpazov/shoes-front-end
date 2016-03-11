@@ -10,7 +10,11 @@ export default class BasketList extends React.Component<any, any> {
 
   render() {
     const {items} = this.props;
-    const itemList = items.map(item => <BasketItem item={item} />);
+    debugger;
+    // todo: make this ul > li
+    const itemList = items.map(item => item.shoeModel)
+                          .map(item => <BasketItem item={item} />);
+
     return (<div> {itemList} </div>);
   }
 }
