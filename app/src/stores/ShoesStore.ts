@@ -52,7 +52,7 @@ const ShoesStore = assign(EventEmitter.prototype, <any> {
 /**
  * TODO: make interfaces for payload and for action
  */
-Dispatcher.register((action: any) => {
+Dispatcher.register(action => {
   const {payload, type} = action;
   switch (type) {
     case ShoeActionTypes.ADD_TO_BASKET_ACTION:

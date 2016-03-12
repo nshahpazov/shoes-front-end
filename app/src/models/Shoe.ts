@@ -2,8 +2,6 @@
 /// <reference path="../../../typing/object-assign.d.ts" />
 // not sure if necessary
 import * as Immutable from 'immutable';
-// not neccessary anymore
-// import assign = require('object-assign');
 
 const defaults = {
   id: -1,
