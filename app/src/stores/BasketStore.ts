@@ -25,7 +25,7 @@ const BasketStore = assign(EventEmitter.prototype, <any>{
   },
 
   set basket(basket) {
-    this._basket = basket;
+    this._basket = new Basket(basket);
   },
 
   /**
@@ -53,6 +53,7 @@ Dispatcher.register(action => {
   switch (type) {
     case BasketActionTypes.REMOVE_FROM_BASKET:
       break;
+
     case BasketActionTypes.GET_BASKET_RESPONSE:
       BasketStore.basket = payload;
       BasketStore.emitChange();
@@ -60,6 +61,10 @@ Dispatcher.register(action => {
 
     case BasketActionTypes.REGISTER_BASKET_RESPONSE:
       console.log(payload);
+      BasketStore.emitChange();
+      break;
+
+    case BasketActionTypes.REMOVE_ITEM_FROM_BASKET_RESPONSE:
       BasketStore.emitChange();
       break;
   }
