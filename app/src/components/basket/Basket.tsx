@@ -25,11 +25,12 @@ export default class Basket extends React.Component<any, any> {
   }
 
   render() {
-    const {orderItems} = this.state.basket;
+    const {basket} = this.state;
+    const {orderItems} = basket;
     return (
       <div>
         <h1>Your Basket</h1>
-        <BasketItemList items={orderItems} />
+        <BasketItemList items={orderItems} basket={basket} />
       </div>
     );
   }
