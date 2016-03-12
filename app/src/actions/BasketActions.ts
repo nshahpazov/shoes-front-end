@@ -14,6 +14,12 @@ export default {
     BasketUtils.getBasket(basket.id);
   },
 
+  removeItem(basket, item) {
+    const type = ActionTypes.REMOVE_ITEM_FROM_BASKET;
+    Dispatcher.handleViewAction({ type });
+    BasketUtils.removeItem(basket.id, item.id);
+  },
+
   registerBasket() {
     const type = ActionTypes.REGISTER_BASKET;
     Dispatcher.handleViewAction({type});
