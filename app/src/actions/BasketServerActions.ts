@@ -12,11 +12,15 @@ export default {
   receiveBasketRegistration(payload) {
     const type = BasketActionTypes.REGISTER_BASKET_RESPONSE;
     if (!payload.hasStored) {
-      // todo: make expires being somewhere customly stored (db, config.json file)
       payload.hasStored = true;
       Cookies.set('basket', JSON.stringify(payload), {expires: 1});
     }
     Dispatcher.handleServerAction({type, payload});
+  },
+
+  receiveBasketItemRemoval(payload) {
+    const type = BasketActionTypes.REMOVE_ITEM_FROM_BASKET_RESPONSE;
+    Dispatcher.handleServerAction({ type, payload });
   },
 
   // a server action to be executed when the item is pushed in the basket
