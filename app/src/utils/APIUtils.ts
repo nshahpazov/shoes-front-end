@@ -13,6 +13,14 @@ export default class APIUtils {
     });
   }
 
+  public static delete(uri) {
+    return new Promise((resolve, reject) => {
+      request.delete(uri)
+        .set('Accept', 'application/json')
+        .end((err, res) => err ? reject(err) : resolve(res.body));
+    });
+  }
+
   public static post(uri, data?) {
     return new Promise((resolve, reject) => {
       request.post(uri)
