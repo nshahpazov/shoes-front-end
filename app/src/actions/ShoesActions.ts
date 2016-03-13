@@ -1,5 +1,5 @@
 import Dispatcher from '../dispatcher/Dispatcher';
-import ActionTypes from '../constants/ShoeActionTypes';
+import ActionTypes from '../constants/ActionTypes';
 import ShoesUtils from '../utils/ShoesUtils';
 import BasketUtils from '../utils/BasketUtils';
 
