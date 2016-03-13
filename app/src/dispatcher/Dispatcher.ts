@@ -2,18 +2,19 @@
 /// <reference path="../../../typing/object-assign.d.ts" />
 import * as Flux from 'flux';
 import assign = require('object-assign');
+import SourceActionTypes from '../constants/SourceActionTypes';
+import IActionable from '../interfaces/IActionable';
 
-// Todo app dispatcher with actions responding to both view and server actions
-// todo: remove implicit casting to any and refactor
-// todo: change to mixin or decorator
-export default (<any>assign(new Flux.Dispatcher(), {
-  handleViewAction(action) {
-    const source = 'VIEW_ACTION';
-    this.dispatch({source, action});
-  },
-
-  handleServerAction(action) {
-    // const source = 'SERVER_ACTION';
-    this.dispatch(action);
+class Dispatcher extends Flux.Dispatcher<IActionable> {
+  handleViewAction({type, payload}: IActionable) {
+    const source = SourceActionTypes.VIEW_ACTION;
+    this.dispatch({source, type, payload});
   }
-}));
+
+  handleServerAction({type, payload}: IActionable) {
+    const source = SourceActionTypes.SERVER_ACTION;
+    this.dispatch({source, type, payload});
+  }
+}
+
+export default new Dispatcher();
