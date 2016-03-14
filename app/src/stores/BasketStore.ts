@@ -31,11 +31,8 @@ const BasketStore = assign(EventEmitter.prototype, <any>{
   },
 
   removeItemFromBasket(id: number) {
-    debugger;
-    const {orderItems} = this.basket;
-    const item = orderItems.find(item => item.id === id);
-    const index = orderItems.indexOf(item);
-    orderItems.splice(index, 1);
+    const {basket} = this;
+    basket.orderItems = basket.orderItems.filter(el => el.id !== id);
   },
 
   /**
@@ -57,6 +54,7 @@ const BasketStore = assign(EventEmitter.prototype, <any>{
 
 Dispatcher.register((action: IActionable) => {
   const {payload, type} = action;
+
   switch (type) {
     case ActionTypes.GET_BASKET_RESPONSE:
       BasketStore.basket = payload;
@@ -72,7 +70,6 @@ Dispatcher.register((action: IActionable) => {
       break;
 
     case ActionTypes.REMOVE_ITEM_FROM_BASKET_RESPONSE:
-      debugger;
       BasketStore.removeItemFromBasket(payload);
       BasketStore.emitChange();
       break;
