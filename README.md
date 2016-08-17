@@ -12,3 +12,4 @@
 * research stateless components and see how they can be integrated
 * better css\layout
 * last: tutorial article about this app (backend + front end)
+* change structure to redux + GraphQL with a different API (Spring)
